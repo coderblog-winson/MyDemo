@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using MyDemo.Core.Data;
 using MyDemo.Core.Data.Entity;
 using MyDemo.Core.Repositories;
 using MyDemo.Core.Services;
+using MyDemo.Utility;
 
 namespace MyDemo.Controllers
 {
@@ -21,11 +21,16 @@ namespace MyDemo.Controllers
 
         protected readonly ILogger<User> _logger;
 
-        public UserController(IUserRepository userRepository, ILogger<User> logger)
+        private MessageHelper _messageHelper;
+
+        public UserController(IUserRepository userRepository, ILogger<User> logger, MessageHelper messageHelper)
         {
             this._userRepository = userRepository;
             this._logger = logger;
+            _messageHelper = messageHelper;
+            _messageHelper.Init("Common,User");
         }
+
 
         /// <summary>
         /// Get all users

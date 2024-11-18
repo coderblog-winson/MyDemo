@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Messages>
+    <Item id="NoUserFound">Can't found the user!</Item>
+    <Item id="UserExist">The user name has already exists!</Item>
+    <Item id="UserInvalid">The current user is invalid!</Item>
+</Messages>

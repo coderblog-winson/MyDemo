@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 using MyDemo.Core.Data.Entity;
 using MyDemo.Core.Middleware;
 using MyDemo.Core.Services;
+using MyDemo.Utility;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -63,7 +64,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
 {
-     // add JWT Authentication
+    // add JWT Authentication
     var securityScheme = new OpenApiSecurityScheme
     {
         Name = "JWT Authentication",
@@ -102,6 +103,8 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
+
+builder.Services.AddScoped<MessageHelper>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {

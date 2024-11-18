@@ -12,11 +12,11 @@ namespace MyDemo.Controllers
     [Route("api/[controller]")]
     public class UploadFileController : ControllerBase
     {
-         protected readonly ILogger<UploadFileController> _logger;
+        protected readonly ILogger<UploadFileController> _logger;
 
         public UploadFileController(ILogger<UploadFileController> logger)
         {
-
+            _logger = logger;
         }
 
         [HttpPost("upload"), DisableRequestSizeLimit]

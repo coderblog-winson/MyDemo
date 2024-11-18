@@ -6,6 +6,7 @@ using MyDemo.Controllers;
 using MyDemo.Core.Data;
 using MyDemo.Core.Data.Entity;
 using MyDemo.Test.Mocks;
+using MyDemo.Utility;
 
 namespace MyDemo.Test;
 
@@ -32,7 +33,9 @@ public class UnitTest1
         //mock the logger
         var logger = Mock.Of<ILogger<User>>();
 
-        var userController = new UserController(mockUserRepository.Object, logger);
+        var messageHelper = Mock.Of<MessageHelper>();
+
+        var userController = new UserController(mockUserRepository.Object, logger, messageHelper);
 
         var result = userController.GetUser(100);
 
@@ -49,12 +52,14 @@ public class UnitTest1
     [Fact]
     public void Test3_CreateUser()
     {
-        var mock = MockIUserRepository.GetMock();
+        var mockUserRepository = MockIUserRepository.GetMock();
 
         //mock the logger
         var logger = Mock.Of<ILogger<User>>();
 
-        var userController = new UserController(mock.Object, logger);
+        var messageHelper = Mock.Of<MessageHelper>();
+
+        var userController = new UserController(mockUserRepository.Object, logger, messageHelper);
 
         var result = userController.PostUser(new User()
         {
@@ -79,12 +84,14 @@ public class UnitTest1
     [Fact]
     public void Test4_UpdateUser()
     {
-        var mock = MockIUserRepository.GetMock();
+        var mockUserRepository = MockIUserRepository.GetMock();
 
         //mock the logger
         var logger = Mock.Of<ILogger<User>>();
 
-        var userController = new UserController(mock.Object, logger);
+        var messageHelper = Mock.Of<MessageHelper>();
+
+        var userController = new UserController(mockUserRepository.Object, logger, messageHelper);
 
         var result = userController.PutUser(new User()
         {
@@ -106,16 +113,18 @@ public class UnitTest1
         Assert.Equal("update user", apiResult.Data.Name);
     }
 
-    
+
     [Fact]
     public void Test5_DeleteUserById()
     {
-        var mock = MockIUserRepository.GetMock();
+        var mockUserRepository = MockIUserRepository.GetMock();
 
         //mock the logger
         var logger = Mock.Of<ILogger<User>>();
 
-        var userController = new UserController(mock.Object, logger);
+        var messageHelper = Mock.Of<MessageHelper>();
+
+        var userController = new UserController(mockUserRepository.Object, logger, messageHelper);
 
         var result = userController.DeleteUser(100);
 
