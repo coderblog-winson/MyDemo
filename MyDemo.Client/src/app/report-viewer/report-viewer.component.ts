@@ -25,12 +25,10 @@ export class ReportViewerComponent implements OnDestroy {
 
   public onPagesLoaded(pagecount: PagesLoadedEvent): void {
     const now = new Date().toLocaleTimeString();
-    //console.log(`%c ${now} Loaded a PDF with ${pagecount.pagesCount} pages`, 'font-size:13px; background:pink; color:#bf2c9f;');
   }
 
   public onEvent(eventName: string, event: any): void {
     const now = new Date().toLocaleTimeString();
-    //console.log(`%c ${eventName} event type:  ${event} `, 'font-size:13px; background:pink; color:#bf2c9f;');
   }
 
   //release the subject object
