@@ -49,6 +49,7 @@ namespace MyDemo.Controllers
                     });
                 }
 
+
                 var secToken = _jwtService.GetToken(user);
                 var jwt = new JwtSecurityTokenHandler().WriteToken(secToken);
 
