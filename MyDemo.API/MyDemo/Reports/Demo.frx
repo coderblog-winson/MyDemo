@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/28/2025 10:29:33" ReportInfo.Modified="05/28/2025 15:21:14" ReportInfo.CreatorVersion="2023.1.0.0">
+  <Dictionary>   
+    <BusinessObjectDataSource Name="UserTable" ReferenceName="UserTable" DataType="null" Enabled="true">
+      <Column Name="Id" DataType="System.Int64"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Password" DataType="System.String"/>
+      <Column Name="Email" DataType="System.String"/>
+      <Column Name="IsActive" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="IsDeleted" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="CreatedAt" DataType="System.DateTime"/>
+      <Column Name="UpdatedAt" DataType="System.DateTime"/>
+    </BusinessObjectDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text8" Left="236.25" Top="9.45" Width="160.65" Height="18.9" Text="This Is A Demo Report" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text9" Left="604.8" Top="9.45" Width="94.5" Height="18.9" Text="[PageNofM]" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="28.35">
+      <TextObject Name="Text2" Left="94.5" Top="9.45" Width="94.5" Height="18.9" Text="Name" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Top="9.45" Width="66.15" Height="18.9" Text="IsActive" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="217.35" Top="9.45" Width="94.5" Height="18.9" Text="Email" Font="Arial, 10pt"/>
+      <TextObject Name="Text7" Left="349.65" Top="9.45" Width="94.5" Height="18.9" Text="CreatedAt" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="18.9" DataSource="UserTable">
+      <TextObject Name="Text1" Left="94.5" Width="94.5" Height="18.9" Text="[UserTable.Name]" Font="Arial, 10pt"/>
+      <CheckBoxObject Name="CheckBox1" Left="28.35" Width="18.9" Height="18.9" DataColumn="UserTable.IsActive"/>
+      <TextObject Name="Text4" Left="217.35" Width="94.5" Height="18.9" Text="[UserTable.Email]" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="349.65" Width="94.5" Height="18.9" Text="[UserTable.CreatedAt]" Format="Date" Format.Format="d" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="97.05" Width="718.2" Height="66.15"/>
+  </ReportPage>
+</Report>

@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './core/auth.guard';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { GeneratepdfComponent } from './generatepdf/generatepdf.component';
+import { ReportComponent } from './report/report.component';
 
 // const routes: Routes = [
 //   { path: 'user-management', component: UserManagementComponent, canActivate: [AuthGuard] },
@@ -18,16 +19,25 @@ const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: 'user-management', component: UserManagementComponent, canActivate: [AuthGuard] },
-      { path: 'form-layout', component: FormLayoutTestingComponent, canActivate: [AuthGuard] },
-      { path: 'login', component: LoginComponent }
-    ]
+      {
+        path: 'user-management',
+        component: UserManagementComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'form-layout',
+        component: FormLayoutTestingComponent,
+        canActivate: [AuthGuard],
+      },
+      { path: 'login', component: LoginComponent },
+    ],
   },
   { path: 'generatePDF', component: GeneratepdfComponent },
+  { path: 'report', component: ReportComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

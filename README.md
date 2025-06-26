@@ -23,5 +23,8 @@ https://www.coderblog.in/2023/09/how-to-support-the-jwt-in-swagger-ui/
 Generate PDF with Free Spire.PDF in .Net Core and download in Angular
 https://www.coderblog.in/2023/07/use-code-first-to-connect-database-in-net-core-api
 
+How to display the report in an Angular site with ASP.NET Core for free
+https://medium.com/@winsonet/how-to-display-the-report-in-an-angular-site-with-asp-net-core-for-free-f6c2bd8ff33a
+
 Setup Launch Debug for the ASP.NET Core Project in VS Code
 https://medium.com/@winsonet/setup-launch-debug-for-the-asp-net-core-project-in-vs-code-62e4c6447fee

@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { MtxGridModule } from '@ng-matero/extensions/grid';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +29,10 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgxLoadingModule } from 'ngx-loading';
 import { GeneratepdfComponent } from './generatepdf/generatepdf.component';
+import { ReportViewerComponent } from './report-viewer/report-viewer.component';
 
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +43,14 @@ import { GeneratepdfComponent } from './generatepdf/generatepdf.component';
     FileValueAccessor,
     LoginComponent,
     MainLayoutComponent,
-    GeneratepdfComponent
+    GeneratepdfComponent,
+    ReportViewerComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
+    // ReportViewerComponent,
+    NgxExtendedPdfViewerModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
     HttpClientModule,
@@ -52,6 +60,7 @@ import { GeneratepdfComponent } from './generatepdf/generatepdf.component';
     TextFieldModule,
     MatFormFieldModule,
     MtxGridModule,
+    MatCardModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormlyMaterialModule,
@@ -68,8 +77,8 @@ import { GeneratepdfComponent } from './generatepdf/generatepdf.component';
             templateOptions: {
               label: 'Is Active',
             },
-            wrappers: ['div']
-          }
+            wrappers: ['div'],
+          },
         },
       ],
       wrappers: [
@@ -82,14 +91,14 @@ import { GeneratepdfComponent } from './generatepdf/generatepdf.component';
         {
           name: 'file',
           component: FormlyFieldFileComponent,
-          wrappers: ['form-field']
-        }
+          wrappers: ['form-field'],
+        },
       ],
-    })
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
